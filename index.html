@@ -1,109 +1,244 @@
 <!DOCTYPE html>
-
 <html lang="ko">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>portfolio</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-   
- </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+ // 텍스트가 보여지는 기능
+
+        // 1. 몇 번째 사진에 마우스가 올라갔는지 확인(if문)
+
+        // 2. 해당 사진을 찾아 hideText class를 지워주고, showText는 삽입해줌
+
+        function showText(number) {
+
+if (number === 1) {
+
+    document.querySelector("#info1").classList.remove("hideText");
+
+    document.querySelector("#info1").classList.add("showText");
+
+} else if (number === 2) {
+
+    document.querySelector("#info2").classList.remove("hideText");
+
+    document.querySelector("#info2").classList.add("showText");
+
+} else if (number === 3) {
+
+    document.querySelector("#info3").classList.remove("hideText");
+
+    document.querySelector("#info3").classList.add("showText");
+
+} else {
+
+    document.querySelector("#info4").classList.remove("hideText");
+
+    document.querySelector("#info4").classList.add("showText");
+
+}
+
+}
+
+
+
+// 텍스트가 감춰지는 기능
+
+// 1. 몇 번째 사진에서 마우스가 벗어났는지 확인(if문)
+
+// 2. 해당 사진을 찾아 shotText class를 지워주고, hideText는 삽입해줌
+
+function hideText(number) {
+
+if (number === 1) {
+
+    document.querySelector("#info1").classList.remove("showText");
+
+    document.querySelector("#info1").classList.add("hideText");
+
+} else if (number === 2) {
+
+    document.querySelector("#info2").classList.remove("showText");
+
+    document.querySelector("#info2").classList.add("hideText");
+
+} else if (number === 3) {
+
+    document.querySelector("#info3").classList.remove("showText");
+
+    document.querySelector("#info3").classList.add("hideText");
+
+} else {
+
+    document.querySelector("#info4").classList.remove("showText");
+
+    document.querySelector("#info4").classList.add("hideText");
+
+}
+
+}
+
+
+
+
+
+// // 클릭 기능
+// // 1. 선택된 사진의 숫자를 가진 텍스트를 alert 형태로 출력해줌
+// function alertText(number) {
+// 	alert(`${number}번째 추억이에요! 눌러주셔서 감사합니다 :)`);
+// }
+
+
+  </script>
+  <style>
+      /* 이서윤체 폰트 적용을 위한 코드 */
+  @font-face {
+    font-family: "LeeSeoyun";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body {
+	font-family: "LeeSeoyun";
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	background-image: url("/back");
+}
+
+
+.container{
+  width: 390px;
+  background-color: coral;
+  height: 100%;
+  
+}
+
+.photos{
+  margin: 30px;
+}
+
+.photo-frame{
+  background-color: white;
+  margin: 15px 20px;
+  height: 300px;
+  background-size: cover;
+  position: relative;
+  cursor: pointer;
+}
+
+.footer{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.f-title{
+  color: white;
+  font-size: 25px;
+  font-weight: 900;
+
+}
+.f-date{
+color: black;
+font-size: 15px;
+font-weight: 500;}
+
+#image1{
+  background-image: url(./img1.jpg);
+}
+#image2{
+  background-image: url(./img2.jpg);
+}
+#image3{
+  background-image: url(./img3.jpg);
+}
+#image4{
+  background-image: url(./img4.jpg);
+}
+.photo-info{
+	/* 배경은 검게, 글자는 흰 색으로 */
+  font-size: 20px;
+	color: white;
+	background-color: black;
+
+	/* 가로 너비는 내부 콘텐츠에 딱 맞게! */
+	width: fit-conten;
+	padding: 0 20px;
+	margin-bottom: 10px;
+
+position: absolute;
+bottom:0;
+transform: translate(-50%);
+  left: 50%;
+  opacity: 0;
+
+
+}
+
+/* opacity : 투명도를 의미해요! opacity는 1에 가까워 질 수록 불투명하다. 즉 다 보인다. */
+.showText {
+	opacity: 1;
+  transition: opacity 0.5s linear;
+}
+
+/* opacity : 투명도를 의미해요! opacity는 0에 가까워 질 수록 투명하다. 즉 안보인다. */
+/* transition : 나타날 때 0.5초동안 천천히 나타나는 효과를 주라는 의미에요 */
+.hideText {
+	opacity: 0;
+}
+
+  </style>
+</head>
 <body>
+  <div class="container">
+    <div class="photos">
+      <div id="image1" class="photo-frame"
+      onmouseover="showText(1)"
+      onmouseout="hideText(1)"
+      onclick="alertText(1)">
+        <span id="info1" class="photo-info">
+          사랑해
+        </span>
+      </div>
+      <div id="image2" class="photo-frame"
+      onmouseover="showText(2)"
+      onmouseout="hideText(2)"
+      onclick="alertText(2)">
+        <span id="info2" class="photo-info">
+          아이러브유
 
-<div class="frame">
-<!----------------------nav------------------------------->
-    <nav class="nav">
-        <h3 class="site-name"><a href="index.html">Portfolio</a></h3>
-        <ul>
-            <li><a class="nav-menu" href="index.html">WORKS</a></li>
-            <li><a class="nav-menu" href="info.html">INFO</a></li>
-        </ul>
-    </nav>
-<!----------------------대시보드-------------------->
-
-<div class="dashboard">
-    <h1 class="korean-coment">안녕하세요!<br>
-        따뜻하고 바른 <a class="type1">디자이너</a>를 꿈꾸는<br>
-        <a class="name">김현숙</a>입니다.
-    </h1>
-    <p class="english-coment">
-    Everyone designs who devises courses of action aimed at changing existing situations into preferred ones<br>
-     &#8211;Simon, H. A. (1996)
-
-
-</div>
- <!-------------------주석이다-->
-<!-----------------recent-menu----------------------->
-    <div class="recent-menu">
-        <H5>RECENT WORKS</H5>
+        </span>
     </div>
-   
-    <div class="recent-works">
-        <div class="article" id="ati1">
-            <img class="thumbnail" id="thumb1" src="image/frontkyo.jpg">
-            <div class="article-info">
-                <h3 class="article-name" id="name1">잡지 디자인 Fan magazine</h3>
-                <p class="aiticle-comment">
-                    
+      <div id="image3" class="photo-frame"	onmouseover="showText(3)"
+      onmouseout="hideText(3)"
+      onclick="alertText(3)">
+        <span id="info3" class="photo-info">
+          DY♡HS
 
+        </span>
+      </div>
+      <div id="image4" class="photo-frame"
+      onmouseover="showText(4)"
+      onmouseout="hideText(4)"
+      onclick="alertText(4)">
+        <span id="info4" class="photo-info">
+          사랑하는중
 
-                </p>
-                <a class="more" href="magazine.html" target="_blank"> MORE ></a>
-
+        </span>
+      </div>
     </div>
-</div>
-    </div>
-    <div class="recent-works">
-        <div class="article" id="ati2">
-          
-            <div class="article-info">
-                <h3 class="article-name" id="name2">'한글날 기념' 포스터<br></h3>
-                <p class="aiticle-comment">
-                    훈민정음을 아이소매트릭 기법을 활용해 만들어 재미를 주었으며,<BR>
-                    우리나라 전통 문양을 배치하는 훈민정음의 전통성을 강조 하였고<br>
-                    '백성을 가르치는 바른소리'와 '국립한글 박물관' 을
-                    좌우대칭을 맞추어 레이아웃 하였습니다.
-                </p>
-         
-
-    </div>
-    <img class="thumbnail" id="thumb2" src="image/hangle.jpg">
-</div>
+    <div class="footer">
+      <p class="f-title">happy time</p>
+      <p class="f-date">20231211</p>
     </div>
 
-
-  <div class="recent-works">
-        <div class="article" id="ati1">
-            <img class="thumbnail" id="thumb1" src="image/frontkyo.jpg">
-            <div class="article-info">
-                <h3 class="article-name" id="name1">외주작업</h3>
-                <p class="aiticle-comment">
-                    
-
-
-                </p>
-                <a class="more" href="#" target="_blank"> MORE ></a>
-                </div>
-                </div>
-                </div>
-<!-------------푸터----------------------->
-    <footer class="footer">
-    <h3 class="contact">CONTACT ME!</h3>
-    <div class="links"><a class="instagram" href ="https://www.instagram.com/hyun_e87/" target="_blank">Instargram</a></div>
-    <p>Direct Mail Please!</p>
-   </footer>
-
-
-
-
-
-
-</div>
+  </div>
 
 
 </body>
-
-
 </html>
